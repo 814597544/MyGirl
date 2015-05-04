@@ -1,6 +1,7 @@
 package com.example.administrator.mygirl;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -126,8 +127,8 @@ public class MainActivity extends Activity {
               if (isRemeber){
                   SharePrefrerncesUtil.remPsd(MainActivity.this,uname,upass);
               }
-             // finish();
-                   /* startActivity(new Intent(LoginActivity.this,UserInfoActivity.class));*/
+                  finish();
+                  startActivity(new Intent(MainActivity.this,HomeActivity.class));
 
           }else{
               Toast.makeText(MainActivity.this, "系统故障，登录失败", Toast.LENGTH_SHORT).show();
