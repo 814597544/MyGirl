@@ -52,7 +52,7 @@ public class NotepadActivity extends Activity implements  SwipeRefreshLayout.OnR
     private SwipeRefreshLayout swipeRefreshLayout;
     DatabaseHelper databaseHelper;
     SQLiteDatabase sqLiteDatabase;
-    LinearLayout notelayout;
+    LinearLayout notelayout,title_return;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +90,15 @@ public class NotepadActivity extends Activity implements  SwipeRefreshLayout.OnR
         sqLiteDatabase = databaseHelper.getReadableDatabase();
         title= (TextView) findViewById(R.id.title);
         title.setText("记事本");
+        title_return= (LinearLayout) findViewById(R.id.title_return);
+        title_return.setVisibility(View.VISIBLE);
+        title_return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         my_table= (RelativeLayout) findViewById(R.id.my_table);
         update_my_table= (RelativeLayout) findViewById(R.id.update_my_table);
         add_my_table= (RelativeLayout) findViewById(R.id.add_my_table);
