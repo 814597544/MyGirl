@@ -47,6 +47,7 @@
             android:src="@drawable/menu_open"
             ebm:dimAmount="0.8"
 
+
             ebm:mainButtonSize="0.13"
             ebm:otherButtonSize="0.12"
             ebm:distanceY="0.4"
