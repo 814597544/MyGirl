@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/very_light_grey">
+
+    <include layout="@layout/home_head"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/id_swipe_ly"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="vertical" >
+            <View
+                style="@style/line" />
+
+            <RelativeLayout
+                android:id="@+id/my_table"
+                android:layout_height="46dp"
+                android:layout_width="fill_parent"
+
+                android:paddingLeft="16.0dip" >
+
+                <ImageView
+                    android:id="@+id/my_table_image0"
+                    android:layout_width="20.0dip"
+                    android:layout_height="20.0dip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription=""
+                    android:padding="5.0dip"
+                    android:textColor="#ff000000"
+                    android:src="@drawable/android_list_idex"/>
+                <ImageView
+                    android:id="@+id/my_table_image1"
+                    android:layout_width="20.0dip"
+                    android:layout_height="20.0dip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription=""
+                    android:padding="5.0dip"
+                    android:textColor="#ff000000"
+                    android:visibility="gone"
+                    android:src="@drawable/android_index"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:paddingLeft="15.0dip"
+                    android:text="我的记事本"
+                    android:textColor="#ff000000"
+                    android:textSize="15.0sp" />
+
+                <TextView
+                    android:id="@+id/my_table_num"
+                    android:layout_width="30dp"
+                    android:layout_height="21dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#383C45"
+                    android:textSize="10sp"
+                    android:gravity="center_horizontal"
+                    android:background="@drawable/settext_bag"
+                    />
+            </RelativeLayout>
+            <ListView
+                android:id="@+id/mytable_list"
+                style="@style/listview"
+                android:visibility="gone">
+
+            </ListView>
+            <View
+                style="@style/line" />
+            <RelativeLayout
+                android:id="@+id/update_my_table"
+                android:layout_height="46dp"
+                android:layout_width="fill_parent"
+                android:paddingLeft="16.0dip" >
+
+                <ImageView
+                    android:id="@+id/update_my_table_image0"
+                    android:layout_width="20.0dip"
+                    android:layout_height="20.0dip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription=""
+                    android:padding="5.0dip"
+                    android:textColor="#ff000000"
+                    android:src="@drawable/android_list_idex"/>
+                <ImageView
+                    android:id="@+id/update_my_table_image1"
+                    android:layout_width="20.0dip"
+                    android:layout_height="20.0dip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription=""
+                    android:padding="5.0dip"
+                    android:textColor="#ff000000"
+                    android:visibility="gone"
+                    android:src="@drawable/android_index"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:paddingLeft="15.0dip"
+                    android:text="编辑记事本"
+                    android:textColor="#ff000000"
+                    android:textSize="15.0sp" />
+
+                <TextView
+                    android:id="@+id/update_my_table_num"
+                    android:layout_width="30dp"
+                    android:layout_height="21dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#383C45"
+                    android:textSize="10sp"
+                    android:gravity="center_horizontal"
+                    android:contentDescription="#ff000000"
+                    android:background="@drawable/settext_bag"
+                    />
+                />
+            </RelativeLayout>
+            <com.deleteItem.DelSlideListView
+                android:id="@+id/update_mytable_list"
+                style="@style/listview"
+                android:visibility="gone">
+
+            </com.deleteItem.DelSlideListView>
+            <View
+                style="@style/line" />
+            <RelativeLayout
+                android:id="@+id/add_my_table"
+                android:layout_height="46dp"
+                android:layout_width="fill_parent"
+                android:paddingLeft="16.0dip" >
+
+                <ImageView
+                    android:id="@+id/add_my_table_image"
+                    android:layout_width="20.0dip"
+                    android:layout_height="20.0dip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription=""
+                    android:padding="5.0dip"
+                    android:textColor="#ff000000"
+                    android:src="@drawable/android_list_idex"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:paddingLeft="15.0dip"
+                    android:text="添加"
+                    android:textColor="#ff000000"
+                    android:textSize="15.0sp" />
+
+                />
+            </RelativeLayout>
+
+            <View
+                style="@style/line" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="260dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ic_launcher"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="温馨提示：下拉可以刷新数据!"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+</LinearLayout>

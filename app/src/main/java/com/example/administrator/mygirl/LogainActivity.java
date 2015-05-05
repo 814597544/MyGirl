@@ -16,7 +16,7 @@ import com.mygirl.been.LoadingDialog;
 import com.mygirl.been.SharePrefrerncesUtil;
 
 
-public class MainActivity extends Activity {
+public class LogainActivity extends Activity {
 
     View logain_view;
     LinearLayout rpsd;
@@ -47,11 +47,11 @@ public class MainActivity extends Activity {
         rpsd_true= (ImageView) findViewById(R.id.rpsd_true);
         userName= (EditText) findViewById(R.id.edit_login_name);
         passWord= (EditText) findViewById(R.id.edit_login_pw);
-        userName.setText(SharePrefrerncesUtil.getRpsd(MainActivity.this).get(0).toString());
-        passWord.setText(SharePrefrerncesUtil.getRpsd(MainActivity.this).get(1).toString());
+        userName.setText(SharePrefrerncesUtil.getRpsd(LogainActivity.this).get(0).toString());
+        passWord.setText(SharePrefrerncesUtil.getRpsd(LogainActivity.this).get(1).toString());
         bt_login= (Button) findViewById(R.id.bt_login);
 
-        if (!SharePrefrerncesUtil.getRpsd(MainActivity.this).get(0).toString().equals("")){
+        if (!SharePrefrerncesUtil.getRpsd(LogainActivity.this).get(0).toString().equals("")){
             rpsd_true.setVisibility(View.VISIBLE);
             rpsd_false.setVisibility(View.GONE);
             isRemeber=true;
@@ -67,8 +67,8 @@ public class MainActivity extends Activity {
                 if (isRemeber){
                     rpsd_true.setVisibility(View.GONE);
                     rpsd_false.setVisibility(View.VISIBLE);
-                    SharePrefrerncesUtil.remove(MainActivity.this,"Uname");
-                    SharePrefrerncesUtil.remove(MainActivity.this, "Upsd");
+                    SharePrefrerncesUtil.remove(LogainActivity.this,"Uname");
+                    SharePrefrerncesUtil.remove(LogainActivity.this, "Upsd");
                     isRemeber=false;
                 }else{
                     rpsd_true.setVisibility(View.VISIBLE);
@@ -89,16 +89,16 @@ public class MainActivity extends Activity {
                 upass = passWord.getText().toString().trim();
 
                 if ("".equals(uname)) {
-                    Toast.makeText(MainActivity.this, "请填写MyGirl名字！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LogainActivity.this, "请填写MyGirl名字！", Toast.LENGTH_SHORT).show();
                     userName.requestFocus();
                 } else if ("".equals(upass)) {
-                    Toast.makeText(MainActivity.this, "请填写MyGirl生日！",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LogainActivity.this, "请填写MyGirl生日！",Toast.LENGTH_SHORT).show();
                     passWord.requestFocus();
                 } else if (!"金莹".equals(uname)) {
-                    Toast.makeText(MainActivity.this, "MyGirl名字不正确！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LogainActivity.this, "MyGirl名字不正确！", Toast.LENGTH_SHORT).show();
                     userName.requestFocus();
                 }else if (!"0318".equals(upass)) {
-                    Toast.makeText(MainActivity.this, "MyGirl生日不正确！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LogainActivity.this, "MyGirl生日不正确！", Toast.LENGTH_SHORT).show();
                     userName.requestFocus();
                 }else{
                     dialog1.show();
@@ -122,16 +122,16 @@ public class MainActivity extends Activity {
           dialog1.dismiss();
 
           if (msg.what == 1) {
-              Toast.makeText(MainActivity.this, "登录成功，欢迎来到MyGirl...", Toast.LENGTH_SHORT).show();
+              Toast.makeText(LogainActivity.this, "登录成功，欢迎来到MyGirl...", Toast.LENGTH_SHORT).show();
               //记住密码
               if (isRemeber){
-                  SharePrefrerncesUtil.remPsd(MainActivity.this,uname,upass);
+                  SharePrefrerncesUtil.remPsd(LogainActivity.this,uname,upass);
               }
                   finish();
-                  startActivity(new Intent(MainActivity.this,HomeActivity.class));
+                  startActivity(new Intent(LogainActivity.this,HomeActivity.class));
 
           }else{
-              Toast.makeText(MainActivity.this, "系统故障，登录失败", Toast.LENGTH_SHORT).show();
+              Toast.makeText(LogainActivity.this, "系统故障，登录失败", Toast.LENGTH_SHORT).show();
           }
 
       }
