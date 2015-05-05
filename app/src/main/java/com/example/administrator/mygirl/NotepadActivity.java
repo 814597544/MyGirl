@@ -18,6 +18,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -51,6 +52,7 @@ public class NotepadActivity extends Activity implements  SwipeRefreshLayout.OnR
     private SwipeRefreshLayout swipeRefreshLayout;
     DatabaseHelper databaseHelper;
     SQLiteDatabase sqLiteDatabase;
+    LinearLayout notelayout;
     private long exitTime = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +63,11 @@ public class NotepadActivity extends Activity implements  SwipeRefreshLayout.OnR
         loadData();
         layoutClick();
 
-     /*   mytable_list.setOnItemClickListener(new  AdapterView.OnItemClickListener() {
+        mytable_list.setOnItemClickListener(new  AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(MyTableActivity.this,MyTableListActivity.class);
-                intent.putExtra("fromId","1");
-                intent.putExtra("titleName",tableNameList.get(position).getTableName());
+                Intent intent=new Intent(NotepadActivity.this,MyNoteActivity.class);
+                intent.putExtra("titleName",tableNameList.get(position).getName());
                 startActivity(intent);
             }
 
@@ -75,13 +76,12 @@ public class NotepadActivity extends Activity implements  SwipeRefreshLayout.OnR
         update_mytable_list.setOnItemClickListener(new  AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(MyTableActivity.this,MyTableListActivity.class);
-                intent.putExtra("fromId","2");
-                intent.putExtra("titleName",tableNameList.get(position).getTableName());
+                Intent intent=new Intent(NotepadActivity.this,UpdateNote.class);
+                intent.putExtra("titleName",tableNameList.get(position).getName());
                 startActivity(intent);
             }
 
-        });*/
+        });
     }
 
     private void findId() {
@@ -206,14 +206,13 @@ public class NotepadActivity extends Activity implements  SwipeRefreshLayout.OnR
             }
         });
 
-     /*   add_my_table.setOnClickListener(new View.OnClickListener() {
+        add_my_table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MyTableActivity.this,AddMyTableActivity.class);
+                Intent intent=new Intent(NotepadActivity.this,AddNoteActivity.class);
                 startActivity(intent);
             }
         });
-*/
     }
 
     @Override

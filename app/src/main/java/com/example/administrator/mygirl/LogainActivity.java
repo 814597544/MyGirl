@@ -67,7 +67,7 @@ public class LogainActivity extends Activity {
                 if (isRemeber){
                     rpsd_true.setVisibility(View.GONE);
                     rpsd_false.setVisibility(View.VISIBLE);
-                    SharePrefrerncesUtil.remove(LogainActivity.this,"Uname");
+                    SharePrefrerncesUtil.remove(LogainActivity.this, "Uname");
                     SharePrefrerncesUtil.remove(LogainActivity.this, "Upsd");
                     isRemeber=false;
                 }else{
@@ -125,7 +125,7 @@ public class LogainActivity extends Activity {
               Toast.makeText(LogainActivity.this, "登录成功，欢迎来到MyGirl...", Toast.LENGTH_SHORT).show();
               //记住密码
               if (isRemeber){
-                  SharePrefrerncesUtil.remPsd(LogainActivity.this,uname,upass);
+                  SharePrefrerncesUtil.remPsd(LogainActivity.this, uname, upass);
               }
                   finish();
                   startActivity(new Intent(LogainActivity.this,HomeActivity.class));

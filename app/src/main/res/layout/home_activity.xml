@@ -2,18 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ebm="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-    android:background="@color/very_light_grey"
     android:layout_height="fill_parent" >
 
     <TabHost
         android:id="@android:id/tabhost"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent"
+        >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            >
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
@@ -25,37 +26,42 @@
                 android:id="@android:id/tabs"
                 android:layout_width="fill_parent"
                 android:layout_height="65dp"
+                android:visibility="gone"
                 />
         </LinearLayout>
     </TabHost>
 
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true" >
+
+        <lt.lemonlabs.android.expandablebuttonmenu.ExpandableMenuOverlay
+            android:id="@+id/button_menu"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/menu_open"
+            ebm:dimAmount="0.8"
+
+            ebm:mainButtonSize="0.13"
+            ebm:otherButtonSize="0.12"
+            ebm:distanceY="0.4"
+            ebm:distanceX="0.28"
+            ebm:bottomPad="0.001"
 
 
-    <lt.lemonlabs.android.expandablebuttonmenu.ExpandableMenuOverlay
-        android:id="@+id/button_menu"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="2dp"
-        android:src="@drawable/menu_open"
-        ebm:dimAmount="0.8"
+            ebm:closeButtonSrc="@drawable/menu_close"
+            ebm:leftButtonSrc="@drawable/circle_1"
+            ebm:midButtonSrc="@drawable/circle_2"
+            ebm:rightButtonSrc="@drawable/circle_3"
 
-        ebm:mainButtonSize="0.13"
-        ebm:otherButtonSize="0.12"
-        ebm:distanceY="0.4"
-        ebm:distanceX="0.28"
-        ebm:bottomPad="0.001"
+            ebm:leftButtonText="@string/action_left"
+            ebm:midButtonText="@string/action_mid"
+            ebm:rightButtonText="@string/action_right"/>
 
-
-        ebm:closeButtonSrc="@drawable/menu_close"
-        ebm:leftButtonSrc="@drawable/circle_1"
-        ebm:midButtonSrc="@drawable/circle_2"
-        ebm:rightButtonSrc="@drawable/circle_3"
-
-        ebm:leftButtonText="@string/action_left"
-        ebm:midButtonText="@string/action_mid"
-        ebm:rightButtonText="@string/action_right"/>
-
-
+    </RelativeLayout>
 </RelativeLayout>

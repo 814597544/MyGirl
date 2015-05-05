@@ -51,10 +51,12 @@ public class HomeActivity extends TabActivity {
     }
 
     public void startActivity1(){
-
+           Intent intent=new Intent(HomeActivity.this,NotepadActivity.class);
+           startActivity(intent);
     }
     public void startActivity2(){
-
+        Intent intent=new Intent(HomeActivity.this,YaoYiYaoActivity.class);
+        startActivity(intent);
     }
     public void startActivity3(){
 
