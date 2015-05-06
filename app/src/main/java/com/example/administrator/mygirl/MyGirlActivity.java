@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 
 import android.os.Handler;
 import android.os.Message;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mygirl.been.MyApplication;
+import com.mygirl.been.SnowView;
 
 
 /**
@@ -25,7 +27,7 @@ public class MyGirlActivity extends BaseActivity{
 
     private ImageView imageView_pic,start,stop;
     private TextView textView_desc ;
-    FrameLayout mygirl_layout;
+    View mygirl_layout;
 
     /**
      * 切换的动画
@@ -65,6 +67,7 @@ public class MyGirlActivity extends BaseActivity{
 
     MyApplication myApplication;
     RelativeLayout avg_layout;
+    SnowView snow = null;
     @Override
     public void setView() {
         setContentView(R.layout.mygirl_activity);
@@ -79,8 +82,19 @@ public class MyGirlActivity extends BaseActivity{
         imageView_pic = (ImageView) findViewById(R.id.imageView_pic);
         textView_desc = (TextView) findViewById(R.id.textView_desc);
         avg_layout= (RelativeLayout) findViewById(R.id.avg_layout);
-        mygirl_layout= (FrameLayout) findViewById(R.id.mygirl_layout);
+        mygirl_layout=  findViewById(R.id.mygirl_layout);
         mygirl_layout .getBackground().setAlpha(166);
+
+        // 获得雪花视图,并加载雪花图片到内存
+        snow = (SnowView) findViewById(R.id.snow);
+        snow.LoadSnowImage();
+
+        // 获取当前屏幕的高和宽
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        snow.SetView(dm.heightPixels, dm.widthPixels);
+        // 更新当前雪花
+        update();
 
         init();
        clickLayout();
@@ -285,5 +299,34 @@ public class MyGirlActivity extends BaseActivity{
             }
         }
     };
+
+    /*
+	 * 负责做界面更新工作 ，实现下雪
+	 */
+    private RefreshHandler mRedrawHandler = new RefreshHandler();
+
+    class RefreshHandler extends Handler {
+
+        @Override
+        public void handleMessage(Message msg) {
+            //snow.addRandomSnow();
+            snow.invalidate();
+            sleep(100);
+        }
+        public void sleep(long delayMillis) {
+            this.removeMessages(0);
+            sendMessageDelayed(obtainMessage(0), delayMillis);
+        }
+    };
+
+    /**
+     * Handles the basic update loop, checking to see if we are in the running
+     * state, determining if a move should be made, updating the snake's
+     * location.
+     */
+    public void update() {
+        snow.addRandomSnow();
+        mRedrawHandler.sleep(600);
+    }
 
 }

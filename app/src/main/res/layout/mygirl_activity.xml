@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mygirl_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@drawable/now17">
+    >
 
-
+    <com.mygirl.been.SnowView
+        android:id="@+id/snow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tileSize="24" />
+    <View
+        android:id="@+id/mygirl_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/now17"/>
     <RelativeLayout
         android:id="@+id/avg_layout"
         android:layout_width="324dp"
