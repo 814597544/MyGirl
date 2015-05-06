@@ -10,6 +10,21 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         tileSize="24" />
+    <ImageView
+        android:id="@+id/music_stop"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="24dp"
+        android:src="@drawable/mini_player_frames_01"/>
+    <ProgressBar
+        android:id="@+id/music_run"
+        android:layout_width="24dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="24dp"
+        android:visibility="gone"
+        android:indeterminateDrawable="@anim/run_music"/>
     <View
         android:id="@+id/mygirl_layout"
         android:layout_width="fill_parent"

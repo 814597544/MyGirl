@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="150">
+        <!--让图片自适应Progressbar-->
+        <clip
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:clipOrientation="horizontal"
+            android:drawable="@drawable/mini_player_frames_01"
+            android:gravity="center" >
+        </clip>
+    </item>
+
+    <item android:duration="150">
+        <clip
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:clipOrientation="horizontal"
+            android:drawable="@drawable/mini_player_frames_02"
+            android:gravity="center" >
+        </clip>
+    </item>
+    <item android:duration="150">
+        <!--让图片自适应Progressbar-->
+        <clip
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:clipOrientation="horizontal"
+            android:drawable="@drawable/mini_player_frames_03"
+            android:gravity="center" >
+        </clip>
+    </item>
+
+    <item android:duration="150">
+        <clip
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:clipOrientation="horizontal"
+            android:drawable="@drawable/mini_player_frames_04"
+            android:gravity="center" >
+        </clip>
+    </item>
+    <item android:duration="150">
+        <!--让图片自适应Progressbar-->
+        <clip
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:clipOrientation="horizontal"
+            android:drawable="@drawable/mini_player_frames_05"
+            android:gravity="center" >
+        </clip>
+    </item>
+
+    <item android:duration="150">
+        <clip
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:clipOrientation="horizontal"
+            android:drawable="@drawable/mini_player_frames_06"
+            android:gravity="center" >
+        </clip>
+    </item>
+    <item android:duration="150">
+        <!--让图片自适应Progressbar-->
+        <clip
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:clipOrientation="horizontal"
+            android:drawable="@drawable/mini_player_frames_07"
+            android:gravity="center" >
+        </clip>
+    </item>
+
+    <item android:duration="150">
+        <clip
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:clipOrientation="horizontal"
+            android:drawable="@drawable/mini_player_frames_08"
+            android:gravity="center" >
+        </clip>
+    </item>
+    <item android:duration="150">
+        <!--让图片自适应Progressbar-->
+        <clip
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:clipOrientation="horizontal"
+            android:drawable="@drawable/mini_player_frames_09"
+            android:gravity="center" >
+        </clip>
+    </item>
+
+    <item android:duration="150">
+        <clip
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:clipOrientation="horizontal"
+            android:drawable="@drawable/mini_player_frames_10"
+            android:gravity="center" >
+        </clip>
+    </item>
+    <item android:duration="150">
+        <!--让图片自适应Progressbar-->
+        <clip
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:clipOrientation="horizontal"
+            android:drawable="@drawable/mini_player_frames_11"
+            android:gravity="center" >
+        </clip>
+    </item>
+
+    <item android:duration="150">
+        <clip
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:clipOrientation="horizontal"
+            android:drawable="@drawable/mini_player_frames_12"
+            android:gravity="center" >
+        </clip>
+    </item>
+</animation-list>

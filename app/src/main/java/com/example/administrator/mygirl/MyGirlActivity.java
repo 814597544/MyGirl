@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +26,7 @@ import com.mygirl.been.SnowView;
 public class MyGirlActivity extends BaseActivity{
 
 
-    private ImageView imageView_pic,start,stop;
+    private ImageView imageView_pic,start,stop,music_stop;
     private TextView textView_desc ;
     View mygirl_layout;
 
@@ -68,6 +69,7 @@ public class MyGirlActivity extends BaseActivity{
     MyApplication myApplication;
     RelativeLayout avg_layout;
     SnowView snow = null;
+    ProgressBar music_run;
     @Override
     public void setView() {
         setContentView(R.layout.mygirl_activity);
@@ -79,6 +81,8 @@ public class MyGirlActivity extends BaseActivity{
         myApplication.setRun(false);
         start = (ImageView) findViewById(R.id.start);
         stop = (ImageView) findViewById(R.id.stop);
+        music_stop= (ImageView) findViewById(R.id.music_stop);
+        music_run= (ProgressBar) findViewById(R.id.music_run);
         imageView_pic = (ImageView) findViewById(R.id.imageView_pic);
         textView_desc = (TextView) findViewById(R.id.textView_desc);
         avg_layout= (RelativeLayout) findViewById(R.id.avg_layout);
@@ -109,6 +113,8 @@ public class MyGirlActivity extends BaseActivity{
                 stop.setVisibility(View.VISIBLE);
                 imageView_pic.setVisibility(View.VISIBLE);
                 textView_desc.setVisibility(View.VISIBLE);
+                music_run.setVisibility(View.VISIBLE);
+                music_stop.setVisibility(View.GONE);
                 new Thread(){
                     @Override
                     public void run() {
@@ -133,6 +139,8 @@ public class MyGirlActivity extends BaseActivity{
                 stop.setVisibility(View.GONE);
                 imageView_pic.setVisibility(View.GONE);
                 textView_desc.setVisibility(View.GONE);
+                music_run.setVisibility(View.GONE);
+                music_stop.setVisibility(View.VISIBLE);
                 myApplication.setRun(false);
             }
         });
