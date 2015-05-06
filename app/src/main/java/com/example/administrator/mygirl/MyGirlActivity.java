@@ -127,14 +127,10 @@ public class MyGirlActivity extends BaseActivity{
                 textView_desc.setVisibility(View.VISIBLE);
                 music_run.setVisibility(View.VISIBLE);
                 music_stop.setVisibility(View.GONE);
-                player.stop();
+
                 playerbg.pause();//背景音乐暂停
-                try {
-                    player.prepare();//动画音乐重新开始播放
-                    player.reset();//动画音乐开始播放
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                player.start();
+
                 player.setLooping(true);//设置循环播放
                 new Thread(){
                     @Override
@@ -167,7 +163,8 @@ public class MyGirlActivity extends BaseActivity{
                     music_run.setVisibility(View.GONE);
                     music_stop.setVisibility(View.VISIBLE);
                 }
-                player.stop();//动画音乐停止
+                player.pause();
+                player.seekTo(0);
                 playerbg.start();//背景音乐继续播放
 
                 myApplication.setRun(false);
@@ -194,12 +191,9 @@ public class MyGirlActivity extends BaseActivity{
             public void onClick(View v) {
                 music_run.setVisibility(View.VISIBLE);
                 music_stop.setVisibility(View.GONE);
-                try {
-                    playerbg.prepare();
+
                     playerbg.start();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+
                 musicRun=true;
             }
         });
@@ -208,8 +202,10 @@ public class MyGirlActivity extends BaseActivity{
             public void onClick(View v) {
                 music_run.setVisibility(View.GONE);
                 music_stop.setVisibility(View.VISIBLE);
-                player.stop();
-                playerbg.stop();
+                player.pause();
+                playerbg.pause();
+                player.seekTo(0);
+                playerbg.seekTo(0);
                 musicRun=false;
             }
         });
