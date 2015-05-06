@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mygirl_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#ffffff">
+    android:background="@drawable/now17">
+
 
     <RelativeLayout
+        android:id="@+id/avg_layout"
         android:layout_width="324dp"
         android:layout_height="466dp"
         android:layout_gravity="center"
-        android:background="@drawable/settext_bag"
+        android:background="@drawable/setbar_bag"
         android:orientation="vertical" >
 
         <ImageView
@@ -39,4 +42,17 @@
         </LinearLayout>
     </RelativeLayout>
 
+    <ImageView
+        android:id="@+id/start"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_gravity="center"
+        android:background="@drawable/start"/>
+    <ImageView
+        android:id="@+id/stop"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:background="@drawable/stop"/>
 </FrameLayout>
