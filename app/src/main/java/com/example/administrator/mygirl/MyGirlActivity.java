@@ -3,13 +3,14 @@ package com.example.administrator.mygirl;
 
 import android.graphics.drawable.Drawable;
 
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -18,6 +19,8 @@ import android.widget.Toast;
 
 import com.mygirl.been.MyApplication;
 import com.mygirl.been.SnowView;
+
+import java.io.IOException;
 
 
 /**
@@ -70,6 +73,9 @@ public class MyGirlActivity extends BaseActivity{
     RelativeLayout avg_layout;
     SnowView snow = null;
     ProgressBar music_run;
+    private long exitTime = 0;
+    private MediaPlayer playerbg,player;
+    boolean musicRun=true;
     @Override
     public void setView() {
         setContentView(R.layout.mygirl_activity);
@@ -88,6 +94,12 @@ public class MyGirlActivity extends BaseActivity{
         avg_layout= (RelativeLayout) findViewById(R.id.avg_layout);
         mygirl_layout=  findViewById(R.id.mygirl_layout);
         mygirl_layout .getBackground().setAlpha(166);
+
+        //MediaPlayer的初始化
+        playerbg = MediaPlayer.create(this, R.raw.himi);
+        player = MediaPlayer.create(this, R.raw.iloveyou);
+        playerbg.start();//开始播放
+        playerbg.setLooping(true);//设置循环播放
 
         // 获得雪花视图,并加载雪花图片到内存
         snow = (SnowView) findViewById(R.id.snow);
@@ -115,6 +127,15 @@ public class MyGirlActivity extends BaseActivity{
                 textView_desc.setVisibility(View.VISIBLE);
                 music_run.setVisibility(View.VISIBLE);
                 music_stop.setVisibility(View.GONE);
+                player.stop();
+                playerbg.pause();//背景音乐暂停
+                try {
+                    player.prepare();//动画音乐重新开始播放
+                    player.reset();//动画音乐开始播放
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                player.setLooping(true);//设置循环播放
                 new Thread(){
                     @Override
                     public void run() {
@@ -139,8 +160,16 @@ public class MyGirlActivity extends BaseActivity{
                 stop.setVisibility(View.GONE);
                 imageView_pic.setVisibility(View.GONE);
                 textView_desc.setVisibility(View.GONE);
-                music_run.setVisibility(View.GONE);
-                music_stop.setVisibility(View.VISIBLE);
+                if (musicRun){
+                    music_run.setVisibility(View.VISIBLE);
+                    music_stop.setVisibility(View.GONE);
+                }else {
+                    music_run.setVisibility(View.GONE);
+                    music_stop.setVisibility(View.VISIBLE);
+                }
+                player.stop();//动画音乐停止
+                playerbg.start();//背景音乐继续播放
+
                 myApplication.setRun(false);
             }
         });
@@ -158,6 +187,30 @@ public class MyGirlActivity extends BaseActivity{
                         }
                     }.start();
                 }
+            }
+        });
+        music_stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                music_run.setVisibility(View.VISIBLE);
+                music_stop.setVisibility(View.GONE);
+                try {
+                    playerbg.prepare();
+                    playerbg.start();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                musicRun=true;
+            }
+        });
+        music_run.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                music_run.setVisibility(View.GONE);
+                music_stop.setVisibility(View.VISIBLE);
+                player.stop();
+                playerbg.stop();
+                musicRun=false;
             }
         });
     }
@@ -337,4 +390,27 @@ public class MyGirlActivity extends BaseActivity{
         mRedrawHandler.sleep(600);
     }
 
+
+    /*--------按两次返回键退出程序--------*/
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN)
+        {
+
+            if((System.currentTimeMillis()-exitTime) > 2000)  //System.currentTimeMillis()无论何时调用，肯定大于2000
+            {
+                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            }
+            else
+            {
+                finish();
+                System.exit(0);
+            }
+
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
