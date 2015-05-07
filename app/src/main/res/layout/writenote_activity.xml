@@ -3,16 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ffffff">
+    >
 
     <include layout="@layout/home_head"/>
+    <LinearLayout
+        android:id="@+id/writerlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@drawable/login_bg">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
-        android:textSize="20sp"
-        android:textColor="@color/main_color"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
         android:text="内容："/>
     <EditText
         android:id="@+id/writebody"
@@ -20,6 +26,7 @@
         android:layout_height="fill_parent"
         android:gravity="top"
         android:layout_margin="16dp"
-        android:textColor="@color/main_color"
+        android:textColor="#ffffff"
         android:background="@drawable/setbar_bag"/>
+</LinearLayout>
 </LinearLayout>

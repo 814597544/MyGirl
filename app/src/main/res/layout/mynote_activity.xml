@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ffffff">
+    android:background="@drawable/ago4">
 
     <include layout="@layout/home_head"/>
 
@@ -16,14 +16,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/main_color"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:text="主题："/>
         <TextView
             android:id="@+id/noteName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/main_color"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:text=""/>
         </LinearLayout>
     <LinearLayout
@@ -35,14 +35,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/main_color"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:text="作者："/>
         <TextView
             android:id="@+id/writer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/main_color"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:text="MyGirl"/>
     </LinearLayout>
     <LinearLayout
@@ -55,14 +55,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/main_color"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:text="完成时间："/>
         <TextView
             android:id="@+id/datetime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/main_color"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:text=""/>
     </LinearLayout>
     <LinearLayout
@@ -74,13 +74,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/main_color"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:text="内容："/>
         <TextView
             android:id="@+id/body"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:textColor="@color/main_color"
+            android:textColor="#ffffff"
             android:textSize="16sp"
             android:background="@drawable/setbar_bag"
             android:text=""/>
@@ -89,7 +89,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="@drawable/setbar_bag"
-            android:textColor="@color/main_color"
+            android:textColor="#ffffff"
             android:gravity="top"
             android:textSize="16sp"
             android:visibility="gone"

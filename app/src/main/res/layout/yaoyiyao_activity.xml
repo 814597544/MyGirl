@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/yaolayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/very_light_grey">
+    android:background="@drawable/now12">
+
+
 
     <include layout="@layout/home_head"/>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +22,7 @@
             android:visibility="visible"
             android:text="@string/gain_nothing"
             android:textSize="20sp"
-            android:textColor="#383C45"
+            android:textColor="#ffffff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -36,6 +38,7 @@
             android:background="@drawable/image_middle" />
 
         <ImageView
+            android:id="@+id/imgbuttom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgmiddle"

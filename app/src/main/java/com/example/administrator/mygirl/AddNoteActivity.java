@@ -19,7 +19,7 @@ import com.mygirl.been.DatabaseHelper;
 public class AddNoteActivity extends Activity{
     TextView title,next;
     EditText add_table_name;
-    LinearLayout title_return;
+    LinearLayout title_return,addlayout;
     String addTableName=null;
     DatabaseHelper databaseHelper;
     SQLiteDatabase sqLiteDatabase;
@@ -36,6 +36,8 @@ public class AddNoteActivity extends Activity{
 
         databaseHelper = new DatabaseHelper(this);
         sqLiteDatabase = databaseHelper.getReadableDatabase();
+        addlayout= (LinearLayout) findViewById(R.id.addlayout);
+        addlayout .getBackground().setAlpha(126);
 
         title= (TextView) findViewById(R.id.title);
         next= (TextView) findViewById(R.id.next);

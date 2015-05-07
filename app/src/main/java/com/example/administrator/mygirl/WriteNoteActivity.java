@@ -22,7 +22,7 @@ import java.util.Date;
  * Created by Administrator on 2015/5/5.
  */
 public class WriteNoteActivity extends Activity{
-    LinearLayout finish,title_return;
+    LinearLayout finish,title_return,writerlayout;
     TextView title;
     EditText writebody;
     DatabaseHelper databaseHelper;
@@ -80,7 +80,8 @@ public class WriteNoteActivity extends Activity{
     private void findView() {
         Intent intent=getIntent();
         titleName=intent.getStringExtra("titleName");
-
+        writerlayout= (LinearLayout) findViewById(R.id.writerlayout);
+        writerlayout .getBackground().setAlpha(126);
         databaseHelper = new DatabaseHelper(this);
         sqLiteDatabase = databaseHelper.getReadableDatabase();
         dialog = new LoadingDialog(this);

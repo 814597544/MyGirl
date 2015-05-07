@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -24,9 +25,10 @@ import java.util.Random;
 public class YaoYiYaoActivity extends Activity{
     TextView title,title_right;
     LinearLayout title_return,finish;
+    RelativeLayout yaolayout;
     private Vibrator vibrator;//震动
     /** 摇之前 遥之后 ,隐藏的 */
-    private ImageView imView, imcount;
+    private ImageView imView, imgbuttom;
     private TextView textgain;
     /**监听*/
     private ShakeListenerUtils shakeListener;
@@ -56,7 +58,7 @@ public class YaoYiYaoActivity extends Activity{
     }
 
     public void init(){
-
+        yaolayout= (RelativeLayout) findViewById(R.id.yaolayout);
         title= (TextView) findViewById(R.id.title);
         title.setText("摇一摇");
         title_return= (LinearLayout) findViewById(R.id.title_return);
@@ -69,7 +71,11 @@ public class YaoYiYaoActivity extends Activity{
 
         vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
         imView = (ImageView) findViewById(R.id.imgmiddle);
+        imgbuttom = (ImageView) findViewById(R.id.imgbuttom);
         textgain = (TextView) findViewById(R.id.textgain);
+        yaolayout .getBackground().setAlpha(126);
+        imView .getBackground().setAlpha(126);
+        imgbuttom .getBackground().setAlpha(126);
         random=new Random();
         shakeListener = new ShakeListenerUtils(this);
         shakeListener.setOnShake(onShake);
@@ -81,7 +87,7 @@ public class YaoYiYaoActivity extends Activity{
 
         @Override
         public void onShake() {
-            textgain.setText("客官，惊喜马上就来！");
+            textgain.setText("女神，惊喜马上就来！");
             startVibrator();
             shakeListener.stop();
 
@@ -163,6 +169,8 @@ public class YaoYiYaoActivity extends Activity{
                 }
 
             }
+            imView .getBackground().setAlpha(126);
+            imgbuttom .getBackground().setAlpha(126);
         }
 
     };

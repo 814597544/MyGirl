@@ -88,6 +88,8 @@ public class NotepadActivity extends Activity implements  SwipeRefreshLayout.OnR
 
         databaseHelper = new DatabaseHelper(this);
         sqLiteDatabase = databaseHelper.getReadableDatabase();
+        notelayout= (LinearLayout) findViewById(R.id.notelayout);
+        notelayout .getBackground().setAlpha(126);
         title= (TextView) findViewById(R.id.title);
         title.setText("记事本");
         title_return= (LinearLayout) findViewById(R.id.title_return);

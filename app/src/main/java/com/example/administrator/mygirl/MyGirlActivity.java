@@ -75,7 +75,7 @@ public class MyGirlActivity extends BaseActivity{
     ProgressBar music_run;
     private long exitTime = 0;
     private MediaPlayer playerbg,player;
-    boolean musicRun=true;
+    boolean musicbgRun=true;
     @Override
     public void setView() {
         setContentView(R.layout.mygirl_activity);
@@ -96,7 +96,7 @@ public class MyGirlActivity extends BaseActivity{
         mygirl_layout .getBackground().setAlpha(166);
 
         //MediaPlayer的初始化
-        playerbg = MediaPlayer.create(this, R.raw.himi);
+        playerbg = MediaPlayer.create(this, R.raw.youhebuke);
         player = MediaPlayer.create(this, R.raw.iloveyou);
         playerbg.start();//开始播放
         playerbg.setLooping(true);//设置循环播放
@@ -156,16 +156,16 @@ public class MyGirlActivity extends BaseActivity{
                 stop.setVisibility(View.GONE);
                 imageView_pic.setVisibility(View.GONE);
                 textView_desc.setVisibility(View.GONE);
-                if (musicRun){
+                if (musicbgRun){
                     music_run.setVisibility(View.VISIBLE);
                     music_stop.setVisibility(View.GONE);
+                    playerbg.start();//背景音乐继续播放
                 }else {
                     music_run.setVisibility(View.GONE);
                     music_stop.setVisibility(View.VISIBLE);
                 }
                 player.pause();
                 player.seekTo(0);
-                playerbg.start();//背景音乐继续播放
 
                 myApplication.setRun(false);
             }
@@ -194,7 +194,7 @@ public class MyGirlActivity extends BaseActivity{
 
                     playerbg.start();
 
-                musicRun=true;
+                musicbgRun=true;
             }
         });
         music_run.setOnClickListener(new View.OnClickListener() {
@@ -206,7 +206,7 @@ public class MyGirlActivity extends BaseActivity{
                 playerbg.pause();
                 player.seekTo(0);
                 playerbg.seekTo(0);
-                musicRun=false;
+                musicbgRun=false;
             }
         });
     }
