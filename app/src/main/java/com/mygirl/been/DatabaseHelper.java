@@ -28,10 +28,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
-        // 联合主键
+      /*  // 联合主键
         db.execSQL(" ALTER TABLE mytable ADD PRIMARY KEY (tablename,week,num);");
         // 往表中增加一列
-
+*/
 
        // db.execSQL("alter table person add phone varchar(12) null");
         //drop table if exists person删除表

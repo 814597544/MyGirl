@@ -336,9 +336,9 @@ public class NotepadActivity extends Activity implements  SwipeRefreshLayout.OnR
 
                 @Override
                 public void onClick(View v) {
-                    tableList.remove(position);
                     tabledeleteAdapter.notifyDataSetChanged();
-                    sqLiteDatabase.execSQL("delete from notepad where name = ?;",new String[]{TableName});
+                    sqLiteDatabase.execSQL("delete from notepad where name = ?;",new String[]{tableList.get(position).getName()});
+                    tableList.remove(position);
                     update_my_table_num.setText(""+tableList.size());
 
                 }

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -57,6 +58,7 @@ public class UpdateNote extends Activity{
                     @Override
                     public void run() {
                         Message msg=new Message();
+                        updateData();
                         msg.what=2;
                         handler.sendMessageDelayed(msg, 2000);
                     }
@@ -68,11 +70,12 @@ public class UpdateNote extends Activity{
         });
     }
     private void updateData(){
-        SimpleDateFormat formatter   =   new   SimpleDateFormat   ("yyyy-MM-dd HH:mm:ss");
-        Date curDate   =   new   Date(System.currentTimeMillis());//获取当前时间
-        String nowtime   =   formatter.format(curDate);
-
-        sqLiteDatabase.execSQL("update notepad set time=? and  body=? where name=?;", new String[]{nowtime,updatebody.getText().toString().trim(),titleName});
+        getNowTime();
+        Log.e("nowTime--",nowTime);
+        Log.e("body--",updatebody.getText().toString().trim());
+        Log.e("titleName--",titleName);
+        sqLiteDatabase.execSQL("update notepad set time=? where name=?;", new String[]{nowTime,  titleName});
+        sqLiteDatabase.execSQL("update notepad set body=? where name=?;", new String[]{updatebody.getText().toString().trim(),  titleName});
     }
     private void loadData() {
         Cursor cursor = sqLiteDatabase.rawQuery("select * from notepad where name=?" ,new String[]{titleName});
@@ -123,7 +126,6 @@ public class UpdateNote extends Activity{
                 datetime.setText(nowTime);
                 updatebody.setText(Body);
             }else if(msg.what==2){
-                updateData();
                 finish();
                 Toast.makeText(getApplicationContext(),
                         "修改成功", Toast.LENGTH_SHORT).show();
@@ -134,4 +136,10 @@ public class UpdateNote extends Activity{
             dialog.dismiss();
         }
     };
+    public void getNowTime() {
+        SimpleDateFormat formatter   =   new   SimpleDateFormat   ("yyyy-MM-dd HH:mm:ss");
+        Date curDate   =   new   Date(System.currentTimeMillis());//获取当前时间
+        String nowtime   =   formatter.format(curDate);
+        nowTime=nowtime;
+    }
 }
