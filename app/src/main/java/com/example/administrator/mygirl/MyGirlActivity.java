@@ -44,6 +44,7 @@ public class MyGirlActivity extends BaseActivity{
     /**
      * 图片
      */
+    private Drawable first;
     private Drawable mPicture_1;
     private Drawable mPicture_2;
     private Drawable mPicture_3;
@@ -68,6 +69,10 @@ public class MyGirlActivity extends BaseActivity{
     private Drawable mPicture_22;
     private Drawable mPicture_23;
     private Drawable mPicture_24;
+    private Drawable mPicture_25;
+    private Drawable mPicture_26;
+    private Drawable mPicture_27;
+    private Drawable mPicture_28;
 
     MyApplication myApplication;
     RelativeLayout avg_layout;
@@ -143,8 +148,8 @@ public class MyGirlActivity extends BaseActivity{
                 /**
                  * 界面刚开始显示的内容
                  */
-                imageView_pic.setImageDrawable(mPicture_1);
-                textView_desc.setText("儿时的我们...");
+                imageView_pic.setImageDrawable(first);
+                textView_desc.setText("准备好了吗？"+"\n "+"    带你一起认识我心中"+"\n "+"             不一样的她...");
                 imageView_pic.startAnimation(mFadeIn);
                 myApplication.setRun(true);
             }
@@ -202,10 +207,13 @@ public class MyGirlActivity extends BaseActivity{
             public void onClick(View v) {
                 music_run.setVisibility(View.GONE);
                 music_stop.setVisibility(View.VISIBLE);
-                player.pause();
+
                 playerbg.pause();
-                player.seekTo(0);
                 playerbg.seekTo(0);
+                if (myApplication.isRun()){
+                    player.pause();
+                    player.seekTo(0);
+                }
                 musicbgRun=false;
             }
         });
@@ -238,11 +246,12 @@ public class MyGirlActivity extends BaseActivity{
      */
 
     private void initPicture() {
+        first = getResources().getDrawable(R.drawable.liveshow_bg);
         mPicture_1 = getResources().getDrawable(R.drawable.ago1);
         mPicture_2 = getResources().getDrawable(R.drawable.ago2);
         mPicture_3 = getResources().getDrawable(R.drawable.ago3);
         mPicture_4 = getResources().getDrawable(R.drawable.ago4);
-        mPicture_5 = getResources().getDrawable(R.drawable.ago5);
+        mPicture_5 = getResources().getDrawable(R.drawable.login_bg);
         mPicture_6 = getResources().getDrawable(R.drawable.ago6);
         mPicture_7= getResources().getDrawable(R.drawable.ago7);
         mPicture_8 = getResources().getDrawable(R.drawable.now1);
@@ -262,6 +271,10 @@ public class MyGirlActivity extends BaseActivity{
         mPicture_22= getResources().getDrawable(R.drawable.now15);
         mPicture_23= getResources().getDrawable(R.drawable.now16);
         mPicture_24= getResources().getDrawable(R.drawable.now17);
+        mPicture_25= getResources().getDrawable(R.drawable.ago8);
+        mPicture_26= getResources().getDrawable(R.drawable.ago9);
+        mPicture_27= getResources().getDrawable(R.drawable.ago10);
+        mPicture_28= getResources().getDrawable(R.drawable.ago11);
 
     }
 
@@ -320,21 +333,49 @@ public class MyGirlActivity extends BaseActivity{
             if (myApplication.isRun()){
                 if (myApplication.getPictureNum()==1) {
                     myApplication.setPictureNum(2);
-                    textView_desc.setText("懵懂的我们...");
-                    imageView_pic.setImageDrawable(mPicture_2);
+                    textView_desc.setText("那时的她庄重...");
+                    imageView_pic.setImageDrawable(mPicture_1);
                 } else if (myApplication.getPictureNum()==2) {
                     myApplication.setPictureNum(3);
-                    textView_desc.setText("少年的我们...");
+                    textView_desc.setText("可爱...");
                     imageView_pic.setImageDrawable(mPicture_3);
                 } else if (myApplication.getPictureNum()==3) {
                     myApplication.setPictureNum(4);
-                    textView_desc.setText("儿时的我们...");
-                    imageView_pic.setImageDrawable(mPicture_4);
+                    textView_desc.setText("单纯...");
+                    imageView_pic.setImageDrawable(mPicture_2);
                 }
                 else if (myApplication.getPictureNum()==4) {
+                    myApplication.setPictureNum(5);
+                    textView_desc.setText("美丽...");
+                    imageView_pic.setImageDrawable(mPicture_5);
+                } else if (myApplication.getPictureNum()==5) {
+                    myApplication.setPictureNum(6);
+                    textView_desc.setText("她会时不时卖萌...");
+                    imageView_pic.setImageDrawable(mPicture_6);
+                } else if (myApplication.getPictureNum()==6) {
+                    myApplication.setPictureNum(7);
+                    textView_desc.setText("时不时淘气...");
+                    imageView_pic.setImageDrawable(mPicture_28);
+                }else if (myApplication.getPictureNum()==7) {
+                    myApplication.setPictureNum(8);
+                    textView_desc.setText("她也曾拥有梦想...");
+                    imageView_pic.setImageDrawable(mPicture_26);
+                }else if (myApplication.getPictureNum()==8) {
+                    myApplication.setPictureNum(9);
+                    textView_desc.setText("去蓝天翱翔...");
+                    imageView_pic.setImageDrawable(mPicture_7);
+                }else if (myApplication.getPictureNum()==9) {
+                    myApplication.setPictureNum(10);
+                    textView_desc.setText("去山水之间游荡...");
+                    imageView_pic.setImageDrawable(mPicture_25);
+                }else if (myApplication.getPictureNum()==10) {
+                    myApplication.setPictureNum(11);
+                    textView_desc.setText("成为万人瞩目的女神...");
+                    imageView_pic.setImageDrawable(mPicture_4);
+                }else if (myApplication.getPictureNum()==11) {
                     myApplication.setPictureNum(1);
-                    textView_desc.setText("儿时的我们...");
-                    imageView_pic.setImageDrawable(mPicture_1);
+                    textView_desc.setText("在朦胧之间"+"/n"+"   时间却已悄悄的流逝...");
+                    imageView_pic.setImageDrawable(mPicture_27);
                 }
                 imageView_pic.startAnimation(mFadeIn);
             }

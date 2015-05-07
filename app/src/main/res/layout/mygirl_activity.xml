@@ -58,9 +58,8 @@
                 android:layout_gravity="left"
                 android:paddingLeft="10dip"
                 android:layout_marginBottom="32.0dip"
-                android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:textSize="28.0sp"
+                android:textColor="@color/main_color"
+                android:textSize="21sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </RelativeLayout>
