@@ -73,11 +73,12 @@ public class MyGirlActivity extends BaseActivity{
     private Drawable mPicture_26;
     private Drawable mPicture_27;
     private Drawable mPicture_28;
+    private Drawable mPicture_29;
 
     MyApplication myApplication;
     RelativeLayout avg_layout;
     SnowView snow = null;
-    ProgressBar music_run;
+    ProgressBar music_run,me_run;
     private long exitTime = 0;
     private MediaPlayer playerbg,player;
     boolean musicbgRun=true;
@@ -94,6 +95,7 @@ public class MyGirlActivity extends BaseActivity{
         stop = (ImageView) findViewById(R.id.stop);
         music_stop= (ImageView) findViewById(R.id.music_stop);
         music_run= (ProgressBar) findViewById(R.id.music_run);
+        me_run= (ProgressBar) findViewById(R.id.me_run);
         imageView_pic = (ImageView) findViewById(R.id.imageView_pic);
         textView_desc = (TextView) findViewById(R.id.textView_desc);
         avg_layout= (RelativeLayout) findViewById(R.id.avg_layout);
@@ -259,7 +261,7 @@ public class MyGirlActivity extends BaseActivity{
         mPicture_10 = getResources().getDrawable(R.drawable.now3);
         mPicture_11= getResources().getDrawable(R.drawable.now4);
         mPicture_12= getResources().getDrawable(R.drawable.now5);
-        mPicture_13= getResources().getDrawable(R.drawable.now6);
+        mPicture_13= getResources().getDrawable(R.drawable.sad);
         mPicture_14= getResources().getDrawable(R.drawable.now7);
         mPicture_15= getResources().getDrawable(R.drawable.now8);
         mPicture_16= getResources().getDrawable(R.drawable.now9);
@@ -275,6 +277,7 @@ public class MyGirlActivity extends BaseActivity{
         mPicture_26= getResources().getDrawable(R.drawable.ago9);
         mPicture_27= getResources().getDrawable(R.drawable.ago10);
         mPicture_28= getResources().getDrawable(R.drawable.ago11);
+        mPicture_29= getResources().getDrawable(R.drawable.go_together);
 
     }
 
@@ -373,9 +376,72 @@ public class MyGirlActivity extends BaseActivity{
                     textView_desc.setText("成为万人瞩目的女神...");
                     imageView_pic.setImageDrawable(mPicture_4);
                 }else if (myApplication.getPictureNum()==11) {
-                    myApplication.setPictureNum(1);
-                    textView_desc.setText("在朦胧之间"+"/n"+"   时间却已悄悄的流逝...");
+                    myApplication.setPictureNum(12);
+                    textView_desc.setText("在朦胧之间"+"\n"+"       时间却已悄悄的流逝...");
                     imageView_pic.setImageDrawable(mPicture_27);
+                }else if (myApplication.getPictureNum()==12) {
+                    myApplication.setPictureNum(13);
+                    textView_desc.setText("现在的她爱臭美...");
+                    imageView_pic.setImageDrawable(mPicture_8);
+                }else if (myApplication.getPictureNum()==13) {
+                    myApplication.setPictureNum(14);
+                    textView_desc.setText("臭美...");
+                    imageView_pic.setImageDrawable(mPicture_10);
+                }else if (myApplication.getPictureNum()==14) {
+                    myApplication.setPictureNum(15);
+                    textView_desc.setText("还是臭美...");
+                    imageView_pic.setImageDrawable(mPicture_19);
+                }else if (myApplication.getPictureNum()==15) {
+                    myApplication.setPictureNum(16);
+                    textView_desc.setText("爱美的她偶尔失落...");
+                    imageView_pic.setImageDrawable(mPicture_14);
+                }else if (myApplication.getPictureNum()==16) {
+                    myApplication.setPictureNum(17);
+                    textView_desc.setText("偶尔迷茫...");
+                    imageView_pic.setImageDrawable(mPicture_17 );
+                }else if (myApplication.getPictureNum()==17) {
+                    myApplication.setPictureNum(18);
+                    textView_desc.setText("但她依然鼓起勇气"+"\n"+"           去追逐心中的梦想...");
+                    imageView_pic.setImageDrawable(mPicture_16 );
+                }else if (myApplication.getPictureNum()==18) {
+                    myApplication.setPictureNum(19);
+                    textView_desc.setText("于是她开始新的征程...");
+                    imageView_pic.setImageDrawable(mPicture_22 );
+                }else if (myApplication.getPictureNum()==19) {
+                    myApplication.setPictureNum(20);
+                    textView_desc.setText("去天涯...");
+                    imageView_pic.setImageDrawable(mPicture_11 );
+                }else if (myApplication.getPictureNum()==20) {
+                    myApplication.setPictureNum(21);
+                    textView_desc.setText("去海角...");
+                    imageView_pic.setImageDrawable(mPicture_21 );
+                }else if (myApplication.getPictureNum()==21) {
+                    myApplication.setPictureNum(22);
+                    textView_desc.setText("去心里向往的地方...");
+                    imageView_pic.setImageDrawable(mPicture_15);
+                }else if (myApplication.getPictureNum()==22) {
+                    myApplication.setPictureNum(23);
+                    me_run.setVisibility(View.VISIBLE);
+                    imageView_pic.setVisibility(View.GONE);
+                    textView_desc.setText("我不停的努力奔跑...");
+                }else if (myApplication.getPictureNum()==23) {
+                    me_run.setVisibility(View.GONE);
+                    imageView_pic.setVisibility(View.VISIBLE);
+                    myApplication.setPictureNum(24);
+                    textView_desc.setText("但...");
+                    imageView_pic.setImageDrawable(mPicture_13);
+                }else if (myApplication.getPictureNum()==24) {
+                    myApplication.setPictureNum(25);
+                    textView_desc.setText("她只是可望而不可即...");
+                    imageView_pic.setImageDrawable(mPicture_18);
+                }else if (myApplication.getPictureNum()==25) {
+                    myApplication.setPictureNum(26);
+                    textView_desc.setText("无论怎样"+"\n"+"        走在一起是缘分，一起在走是幸福...");
+                    imageView_pic.setImageDrawable(mPicture_29);
+                }else if (myApplication.getPictureNum()==26) {
+                    myApplication.setPictureNum(1);
+                    textView_desc.setText("自此，献给心中的她"+"\n"+"        希望她永远开心幸福...");
+                    imageView_pic.setImageDrawable(mPicture_24);
                 }
                 imageView_pic.startAnimation(mFadeIn);
             }
