@@ -153,6 +153,7 @@ public class MyGirlActivity extends BaseActivity{
                 imageView_pic.setImageDrawable(first);
                 textView_desc.setText("准备好了吗？"+"\n "+"    带你一起认识我心中"+"\n "+"             不一样的她...");
                 imageView_pic.startAnimation(mFadeIn);
+                myApplication.setPictureNum(1);
                 myApplication.setRun(true);
             }
         });
