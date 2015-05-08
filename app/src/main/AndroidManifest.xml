@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.mygirl" >
-
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="21"/>
     <!-- 震动 -->
     <uses-permission android:name="android.permission.VIBRATE"/> >
     <!-- Required  一些系统要求的权限，如访问网络等 -->
@@ -54,6 +56,20 @@
         <activity android:name=".MyNoteActivity"/>
         <activity android:name=".UpdateNote"/>
         <activity android:name=".YaoYiYaoActivity"/>
+
+        <!-- ###################注册SDK使用的Activity###################### -->
+        <!-- 分享编辑页 -->
+        <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+
+        <!-- ############ QQ空间和QQ SSO授权的Activity注册 ############ -->
+        <activity android:name="com.tencent.tauth.AuthActivity" />
     </application>
 
 </manifest>
