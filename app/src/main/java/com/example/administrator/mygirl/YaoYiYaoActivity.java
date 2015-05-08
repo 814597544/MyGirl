@@ -85,12 +85,19 @@ public class YaoYiYaoActivity extends Activity{
         title_right= (TextView) findViewById(R.id.title_right);
         title_right.setText("分享");
         finish= (LinearLayout) findViewById(R.id.finish);
+        yaolayout= (RelativeLayout) findViewById(R.id.yaolayout);
         finish.setVisibility(View.VISIBLE);
 
 
         vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
         imView = (ImageView) findViewById(R.id.imgmiddle);
+        imgbuttom= (ImageView) findViewById(R.id.imgbuttom);
         textgain = (TextView) findViewById(R.id.textgain);
+
+        imView .getBackground().setAlpha(126);
+        imgbuttom .getBackground().setAlpha(126);
+        yaolayout .getBackground().setAlpha(126);
+
         random=new Random();
         shakeListener = new ShakeListenerUtils(this);
         shakeListener.setOnShake(onShake);
@@ -188,6 +195,7 @@ public class YaoYiYaoActivity extends Activity{
             }
             imView .getBackground().setAlpha(126);
             imgbuttom .getBackground().setAlpha(126);
+            yaolayout .getBackground().setAlpha(126);
         }
 
     };
@@ -215,7 +223,7 @@ public class YaoYiYaoActivity extends Activity{
 
 
         // wx9c4bd02b3392e471是你在微信开发平台注册应用的AppID, 这里需要替换成你注册的AppID
-        String appID = "wx9c4bd02b3392e471";
+        String appID = "wx";
         // 微信图文分享必须设置一个url
         String contentUrl = "http://user.qzone.qq.com/867011886?ptlang=2052";
         // 添加微信平台，参数1为当前Activity, 参数2为用户申请的AppID, 参数3为点击分享内容跳转到的目标url
